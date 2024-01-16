@@ -9,13 +9,13 @@ The data is obtained from the Stack Exchange Data Dump, available [here](https:/
 ## Setup
 1. Download the Stack Exchange Data Dump from [archive.org](https://archive.org/download/stackexchange/tex.stackexchange.com.7z).
 2. Extract the data dump into the `tex.stackexchange.com` folder.
-3. Install Python 3.6 or higher.
+3. Install Python 3.8 or higher.
 4. [Install Spark](https://spark.apache.org/docs/latest/) (3.5.0 recommended).
 5. Install the required dependencies: `pip install -r requirements.txt`.
 6. Run the `analysis.ipynb` notebook.
 
 ## Results
-Currently, our best model achieved an accuracy of 0% in predicting accepted answers.
+Our model achieved an accuracy of 74.24% in predicting accepted answers.
 
 ## Contributors
 - Krzysztof Mizgała
