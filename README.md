@@ -12,7 +12,7 @@ The data is obtained from the Stack Exchange Data Dump, available [here](https:/
 3. Install Python 3.8 or higher.
 4. [Install Spark](https://spark.apache.org/docs/latest/) (3.5.0 recommended).
 5. Install the required dependencies: `pip install -r requirements.txt`.
-6. Run the `analysis.ipynb` notebook.
+6. Run jupyter notebook and open `analysis.ipynb`, `features.ipynb` or `statistics.ipynb` to see the results of our analysis.
 
 ## Results
 Our model achieved an accuracy of 74.24% in predicting accepted answers.
