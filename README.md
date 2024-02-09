@@ -15,7 +15,7 @@ The data is obtained from the Stack Exchange Data Dump, available [here](https:/
 6. Run jupyter notebook and open `analysis.ipynb`, `features.ipynb` or `statistics.ipynb` to see the results of our analysis.
 
 ## Results
-Our model achieved an accuracy of 74.24% in predicting accepted answers.
+Our model achieved an accuracy of 70.92% in predicting accepted answers.
 
 ## Contributors
 - Krzysztof Mizgała
