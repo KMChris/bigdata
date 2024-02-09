@@ -201,9 +201,32 @@ Jeżeli podczas pracy w \TeX-u napotkamy problem, dobrym instynktem jest wyszuka
 	\section{Wybór najlepszego modelu}\label{sec:wybor-najlepszego-modelu}
 	Posiadając informacje na temat istotności cech możemy przystąpić do konstrukcji modeli. Dzielimy dane na część uczącą i testową w stosunku 80/20. Dla danych uczących dopasowujemy cztery modele. Następnie wyznaczamy predykcje uzyskania zaakceptowanej odpowiedzi dla danych ze zbioru testowego i badamy jakość modeli w oparciu o: 
 	\begin{itemize}
-		\item dokładność dopasowania (accuracy);
+		\item dokładność dopasowania (Accuracy); 
 		\item wskaźnika Bookmaker Informedness (BI);
 		\item współczynnik korelacji Matthewsa (MCC). 
+	\end{itemize}
+
+	\subsection{Wykorzystywane miary dokładności}\label{subsec:miary-dokladnosci}
+	
+	\subsubsection{Dokładność (Accuracy)}
+	Jest to miara statystyczna wykorzystywana w kontekście klasyfikacji w uczeniu masyznowym i statystyce do mierzenia stopnia zgodności między przewidywaniami modelu a rzeczywistymi wartościami. Określa ona stosunek liczby poprawnych przewidywań do całkowitej liczby przypadków w zbiorze danych i przedstawia się wzorem 
+	\[\mathrm{Dokładność} = \frac{\mathrm{Dobrze~dopasowane~przypadki}}{\mathrm{Liczność~populacji}}.\] 
+	Dużą zaletą tej miary jest jej prostota i łatwość w interpretacji. Pomimo tego, ze względu na brak uwzględnienia nierównomiernego rozkładu klas, wysoka dokładność może być myląca, gdy jedna klasa jest znacznie liczniejsza niz pozostałe. Model może osiągnąć wysoką dokładność, zawsze przewidując dominującą klasę, co nie świadczy o jego rzeczywistej skuteczności. Z tego względu, do oceny modeli wykorzystamy również inne miary.
+	
+	\subsubsection{Bookmaker Informedness (BM)}
+	Jest to miara oceniająca skuteczność klasyfikatora binarnego, która mierzy zdolność klasyfikatora do unikania fałszywych klasyfikacji, łącząc czułość i specyficzność w jedną metrykę. Wartość BM wynosi od 0 (brak wartości informacyjnej) do 1 (doskonała informacyjność), gdzie wyższe wartości wskazują na lepszą wydajność klasyfikatora. Miara ta przedstawia się wzorem
+	\[BM = \mathrm{Czułość} + \mathrm{Swoistość} - 1.\] 
+	Zaletami tej miary są prostota interpretacji oraz zdolność do oceny ogólnej skuteczności klasyfikatora w unikaniu fałszywych klasyfikacji. Pomimo tego jest mniej przydatna w niezbalansowanych zbiorach danych, gdzie liczba przypadków w klasach jest istotnie różna.
+	
+	\subsubsection{Współczynnik korelacji Matthewsa (MCC)}
+	Jest to miara służąca do oceny jakości klasyfikacji binarnych, uwzględniająca wszystkie cztery części macierzy pomyłek: prawdziwie pozytywne, fałszywie pozytywne, prawdziwie negatywne i fałszywie negatywne przypadki. Oferuje zbilansowaną ocenę klasyfikatorów, szczególnie w niezbalansowanych zbiorach danych. MCC przyjmuje wartości od -1 do 1, gdzie 1 oznacza dobre dopasowanie, 0 na poziomie klasyfikatora losowego, a -1 oznacza całkowite niedopasowanie. Miara ta przedstawia się wzorem
+	\[MCC = \frac{(TP \cdot TN) - (FP \cdot FN)}{\sqrt{(TP + FP)(TP + FN)(TN + FP)(TN + FN)}},\] 
+	gdzie
+	\begin{itemize}
+		\item $TP$ - liczba prawdziwie pozytywnych wyników,
+		\item $TN$ - liczba prawdziwie negatywnych wyników,
+		\item $FP$ - liczba fałszywie pozytywnych wyników,
+		\item $FN$ - liczba fałszywie negatywnych wyników.
 	\end{itemize}
 	
 	\subsection{Model regresji logistycznej}\label{subsec:model-regresji-logistycznej}
